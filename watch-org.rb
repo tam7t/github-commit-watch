@@ -1,8 +1,8 @@
 require 'octokit'
 
-require_relative 'signatures'
-require_relative 'email_reporter'
-require_relative 'watcher'
+require_relative 'lib/reporters/email_reporter'
+require_relative 'lib/signatures'
+require_relative 'lib/watcher'
 
 # Initialize options
 options = {}

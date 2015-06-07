@@ -1,4 +1,4 @@
-require_relative '../console_reporter'
+require 'reporters/console_reporter'
 
 describe ConsoleReporter do
   describe '#print' do

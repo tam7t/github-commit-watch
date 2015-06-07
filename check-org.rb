@@ -1,9 +1,9 @@
 require 'octokit'
 require 'optparse'
 
-require_relative 'signatures'
-require_relative 'console_reporter'
-require_relative 'watcher'
+require_relative 'lib/reporters/console_reporter'
+require_relative 'lib/signatures'
+require_relative 'lib/watcher'
 
 # Initialize options
 options = {}

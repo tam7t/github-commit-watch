@@ -1,4 +1,4 @@
-require_relative '../signatures'
+require 'signatures'
 
 describe Signatures do
   describe '#check' do

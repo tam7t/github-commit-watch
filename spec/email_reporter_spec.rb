@@ -1,4 +1,4 @@
-require_relative '../email_reporter'
+require 'reporters/email_reporter'
 
 describe EmailReporter do
   let(:client) { double('mailgun client') }
