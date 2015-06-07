@@ -12,14 +12,12 @@ class Watcher
     c = commits(p)
     bad = matches(c)
     @reporter.print(bad)
-    return max(p) || from
+    max(p) || from
   end
 
   private
 
-  def client
-    @client
-  end
+  attr_reader :client
 
   def members
     client.org_members(@organization, per_page: 100)
@@ -48,7 +46,7 @@ class Watcher
       push[:payload][:commits].map do |commit|
         begin
           client.get(commit.url)
-        rescue StandardError => e
+        rescue StandardError
           nil
         end
       end

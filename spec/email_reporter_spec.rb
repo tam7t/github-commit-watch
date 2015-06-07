@@ -2,11 +2,13 @@ require 'reporters/email_reporter'
 
 describe EmailReporter do
   let(:client) { double('mailgun client') }
-  let(:options) { { mailgun_api_key: 'key',
-                    from: 'from',
-                    to: 'to',
-                    subject: 'subject',
-                    domain: 'domain'} }
+  let(:options) do
+    { mailgun_api_key: 'key',
+      from: 'from',
+      to: 'to',
+      subject: 'subject',
+      domain: 'domain' }
+  end
 
   before do
     allow(Mailgun::Client).to receive(:new) { client }
@@ -35,7 +37,7 @@ describe EmailReporter do
       let(:matches) { [commit: commit, file: file, reason: reason] }
 
       let(:expected_output) do
-        [ 'domain', { from:'from', to:'to', subject:'subject', text:"[fail] 1 bad files detected.\nbad_login - bad_file - patch: password - bad_url\n" } ]
+        ['domain', { from: 'from', to: 'to', subject: 'subject', text: "[fail] 1 bad files detected.\nbad_login - bad_file - patch: password - bad_url\n" }]
       end
 
       it 'composes a message for mailgun' do
